@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" style={{ scrollBehavior: "smooth" }} data-mantine-color-scheme="light">
+    <html lang="en" style={{ scrollBehavior: "smooth" }} data-mantine-color-scheme="light" suppressHydrationWarning>
       <head>
         <ColorSchemeScript />
       </head>

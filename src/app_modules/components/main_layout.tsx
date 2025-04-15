@@ -67,7 +67,7 @@ export default function ComponentLayout({ children }: { children: React.ReactNod
           <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
           <Group justify="space-between" style={{ flex: 1 }}>
             <Text size="lg" fw={700}>
-              Your Portfolio
+              Banuna Studio
             </Text>
             <Avatar src={assetsPath.photo} size="md" radius="xl" />
           </Group>
@@ -81,10 +81,10 @@ export default function ComponentLayout({ children }: { children: React.ReactNod
           <Box ta="center" mb={20}>
             <Avatar src={assetsPath.photo} size={120} radius={120} mx="auto" mb={10} />
             <Text size="xl" fw={700} c="white">
-              Your Name
+              Bagas Banuna
             </Text>
             <Text size="sm" c="dimmed">
-              Web Developer
+              Web Developer & UI / UX Design
             </Text>
           </Box>
           <Divider my="sm" />
