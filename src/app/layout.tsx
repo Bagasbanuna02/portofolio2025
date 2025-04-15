@@ -1,35 +1,30 @@
-// Import styles of packages that you've installed.
-// All packages except `@mantine/hooks` require styles imports
-import "@mantine/core/styles.css";
-
-import {
-  ColorSchemeScript,
-  MantineProvider,
-  mantineHtmlProps,
-} from "@mantine/core";
-import { MainLayout } from "@/app_modules/global/main_layout";
-import { theme } from "../theme";
+import type React from "react"
+import "@mantine/core/styles.css"
+import { MantineProvider, ColorSchemeScript } from "@mantine/core"
+import { theme } from "./theme"
+import "./styles/global-styles.css" // Import the custom styles
+import { MainLayout } from "./components/main-layout"
 
 export const metadata = {
-  title: "My Mantine app",
-  description: "I have followed setup instructions carefully",
-};
+  title: "Professional Portfolio",
+  description: "A showcase of my work and skills",
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang="en" {...mantineHtmlProps}>
+    <html lang="en" style={{ scrollBehavior: "smooth" }} data-mantine-color-scheme="light" suppressHydrationWarning>
       <head>
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider theme={theme} defaultColorScheme="dark">
+        <MantineProvider theme={theme}  defaultColorScheme="dark">
           <MainLayout>{children}</MainLayout>
         </MantineProvider>
       </body>
     </html>
-  );
+  )
 }

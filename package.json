@@ -1,12 +1,13 @@
 {
   "name": "portofolio2025",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack --experimental-https",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ver": "bunx commit-and-tag-version -- --prerelease"
   },
   "dependencies": {
     "@mantine/carousel": "^7.17.3",
