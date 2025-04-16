@@ -142,7 +142,7 @@ export default function PricingPage() {
       {/* Pricing Plans */}
       <Box py={80} bg={theme.colors.dark[8]}>
         <Container size="lg">
-          <SimpleGrid cols={{ base: 1, md: 3 }} spacing={30}>
+          <SimpleGrid cols={{ base: 1, md: 3 }} spacing={"lg"}>
             {pricingPlans.map((plan, index) => (
               <Card
                 key={index}
@@ -373,7 +373,7 @@ export default function PricingPage() {
       {/* Process Section */}
       <Box py={80} bg={theme.colors.dark[7]}>
         <Container size="lg">
-          <Grid gutter={50}>
+          <Grid gutter={"xs"}>
             <Grid.Col span={{ base: 12, md: 5 }}>
               <Title order={2} size="h2" fw={700} c="white">
                 My Working Process

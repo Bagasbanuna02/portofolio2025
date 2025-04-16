@@ -11,6 +11,7 @@ import {
   List,
   Progress,
   SimpleGrid,
+  Stack,
   Text,
   ThemeIcon,
   Timeline,
@@ -73,32 +74,24 @@ export default function AboutPage() {
 
       {/* About Me Section */}
       <Box py={80} bg={theme.colors.dark[8]}>
-        <Container size="lg">
-          <Grid gutter={50} align="center">
-            <Grid.Col span={{ base: 12, md: 5 }}>
-              <Box pos="relative">
-                <Image
-                  src={assetsPath.dummy_image}
-                  alt="Profile"
-                  radius="md"
-                  style={{
-                    border: `5px solid ${theme.colors.dark[6]}`,
-                    boxShadow: `0 20px 40px rgba(0,0,0,0.3)`,
-                  }}
-                />
-                <Box
-                  pos="absolute"
-                  bottom={-30}
-                  right={-30}
-                  w={100}
-                  h={100}
-                  bg="blue"
-                  style={{ borderRadius: 12, zIndex: -1 }}
-                />
-              </Box>
-            </Grid.Col>
+        <Container size="md">
+          <SimpleGrid cols={{
+            base: 1,
+            md: 2,
+          }}>
+            <Stack justify="center">
+              <Image
+                src={assetsPath.photo}
+                alt="Profile"
+                radius="md"
+                style={{
+                  border: `5px solid ${theme.colors.dark[6]}`,
+                  boxShadow: `0 20px 40px rgba(0,0,0,0.3)`,
+                }}
+              />
+            </Stack>
 
-            <Grid.Col span={{ base: 12, md: 7 }}>
+            <Box>
               <Title order={2} size="h2" fw={700} c="white">
                 Who I Am
               </Title>
@@ -173,15 +166,17 @@ export default function AboutPage() {
                   Contact Me
                 </Button>
               </Group>
-            </Grid.Col>
-          </Grid>
+            </Box>
+          </SimpleGrid>
+
+        
         </Container>
       </Box>
 
       {/* Skills Section */}
       <Box py={80} bg={theme.colors.dark[7]}>
-        <Container size="lg">
-          <Grid gutter={50}>
+        <Container size="md">
+          <Grid gutter={"lg"}>
             <Grid.Col span={{ base: 12, md: 6 }}>
               <Title order={2} size="h2" fw={700} c="white">
                 My Skills
@@ -364,7 +359,7 @@ export default function AboutPage() {
       {/* Education Section */}
       <Box py={80} bg={theme.colors.dark[7]}>
         <Container size="lg">
-          <Grid gutter={50}>
+          <Grid gutter={"md"}>
             <Grid.Col span={{ base: 12, md: 6 }}>
               <Title order={2} size="h2" fw={700} c="white">
                 Education
