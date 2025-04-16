@@ -3,18 +3,17 @@
 
 import { assetsPath } from "@/lib/assets_path";
 import {
+  Badge,
   Box,
   Button,
   Container,
-  Grid,
   Group,
   Image,
   SimpleGrid,
+  Tabs,
   Text,
   Title,
   useMantineTheme,
-  Tabs,
-  Badge,
 } from "@mantine/core";
 import { IconExternalLink } from "@tabler/icons-react";
 import Link from "next/link";
@@ -188,8 +187,8 @@ export default function PortfolioPage() {
       {/* Process Section */}
       <Box py={80} bg={theme.colors.dark[7]}>
         <Container size="lg">
-          <Grid gutter={50}>
-            <Grid.Col span={{ base: 12, md: 5 }}>
+          <SimpleGrid cols={{ base: 1, sm: 1, md: 1, lg: 2 }} spacing={30}>
+            <div>
               <Title order={2} size="h2" fw={700} c="white">
                 My Development Process
               </Title>
@@ -216,67 +215,65 @@ export default function PortfolioPage() {
               >
                 Start a Project
               </Button>
-            </Grid.Col>
+            </div>
 
-            <Grid.Col span={{ base: 12, md: 7 }}>
-              <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={20}>
-                {[
-                  {
-                    number: "01",
-                    title: "Discovery",
-                    description:
-                      "Understanding your business, goals, target audience, and project requirements through in-depth consultation.",
-                  },
-                  {
-                    number: "02",
-                    title: "Planning",
-                    description:
-                      "Creating a detailed project plan with timelines, milestones, and deliverables to ensure smooth execution.",
-                  },
-                  {
-                    number: "03",
-                    title: "Design",
-                    description:
-                      "Developing wireframes and visual designs that align with your brand and provide an optimal user experience.",
-                  },
-                  {
-                    number: "04",
-                    title: "Development",
-                    description:
-                      "Building your project using the latest technologies and best practices for performance and security.",
-                  },
-                  {
-                    number: "05",
-                    title: "Testing",
-                    description:
-                      "Rigorous testing across devices and browsers to ensure functionality, usability, and accessibility.",
-                  },
-                  {
-                    number: "06",
-                    title: "Launch & Support",
-                    description:
-                      "Deploying your project and providing ongoing support and maintenance to ensure continued success.",
-                  },
-                ].map((step, index) => (
-                  <Box
-                    key={index}
-                    p="lg"
-                    bg={theme.colors.dark[6]}
-                    className="process-step"
-                    style={{ borderRadius: theme.radius.md }}
-                  >
-                    <Text size="xl" fw={900} c="blue" mb="xs">
-                      {step.number}
-                    </Text>
-                    <Text fw={700} size="lg" mb="xs" c="white">
-                      {step.title}
-                    </Text>
-                    <Text c="dimmed">{step.description}</Text>
-                  </Box>
-                ))}
-              </SimpleGrid>
-            </Grid.Col>
-          </Grid>
+            <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={20}>
+              {[
+                {
+                  number: "01",
+                  title: "Discovery",
+                  description:
+                    "Understanding your business, goals, target audience, and project requirements through in-depth consultation.",
+                },
+                {
+                  number: "02",
+                  title: "Planning",
+                  description:
+                    "Creating a detailed project plan with timelines, milestones, and deliverables to ensure smooth execution.",
+                },
+                {
+                  number: "03",
+                  title: "Design",
+                  description:
+                    "Developing wireframes and visual designs that align with your brand and provide an optimal user experience.",
+                },
+                {
+                  number: "04",
+                  title: "Development",
+                  description:
+                    "Building your project using the latest technologies and best practices for performance and security.",
+                },
+                {
+                  number: "05",
+                  title: "Testing",
+                  description:
+                    "Rigorous testing across devices and browsers to ensure functionality, usability, and accessibility.",
+                },
+                {
+                  number: "06",
+                  title: "Launch & Support",
+                  description:
+                    "Deploying your project and providing ongoing support and maintenance to ensure continued success.",
+                },
+              ].map((step, index) => (
+                <Box
+                  key={index}
+                  p="lg"
+                  bg={theme.colors.dark[6]}
+                  className="process-step"
+                  style={{ borderRadius: theme.radius.md }}
+                >
+                  <Text size="xl" fw={900} c="blue" mb="xs">
+                    {step.number}
+                  </Text>
+                  <Text fw={700} size="lg" mb="xs" c="white">
+                    {step.title}
+                  </Text>
+                  <Text c="dimmed">{step.description}</Text>
+                </Box>
+              ))}
+            </SimpleGrid>
+          </SimpleGrid>
         </Container>
       </Box>
 
@@ -323,7 +320,7 @@ function ProjectCard({ project }: { project: any }) {
     >
       <Box style={{ position: "relative", overflow: "hidden", height: 200 }}>
         <Image
-          src={ assetsPath.dummy_image}
+          src={assetsPath.dummy_image}
           alt={project.title}
           height={200}
           style={{ objectFit: "cover" }}

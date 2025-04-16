@@ -54,7 +54,7 @@ export default function ContactPage() {
       {/* Contact Form Section */}
       <Box py={80} bg={theme.colors.dark[8]}>
         <Container size="lg">
-          <Grid gutter={50}>
+          <Grid gutter={"lg"}>
             <Grid.Col span={{ base: 12, md: 5 }}>
               <Title order={2} size="h2" fw={700} c="white">
                 Contact Information
