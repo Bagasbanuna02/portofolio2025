@@ -1,39 +1,43 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
+import { assetsPath } from "@/lib/assets_path";
 import {
-  AppShell,
-  Group,
-  Text,
-  Box,
   Anchor,
-  Stack,
-  ThemeIcon,
+  AppShell,
   Avatar,
-  Divider,
-  useMantineTheme,
+  Box,
   Burger,
-} from "@mantine/core"
-import { useDisclosure } from "@mantine/hooks"
+  Divider,
+  Group,
+  Stack,
+  Text,
+  ThemeIcon,
+  useMantineTheme
+} from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
-  IconMail,
-  IconHome,
   IconBriefcase,
-  IconUser,
-  IconMessage,
   IconCoin,
-} from "@tabler/icons-react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { assetsPath } from "@/lib/assets_path"
+  IconHome,
+  IconMail,
+  IconMessage,
+  IconUser,
+} from "@tabler/icons-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-export default function ComponentLayout({ children }: { children: React.ReactNode }) {
-  const [opened, { toggle, close }] = useDisclosure(false)
-  const theme = useMantineTheme()
-  const pathname = usePathname()
+export default function ComponentLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [opened, { toggle, close }] = useDisclosure(false);
+  const theme = useMantineTheme();
+  const pathname = usePathname();
 
   const navLinks = [
     { icon: IconHome, label: "Home", path: "/" },
@@ -41,13 +45,13 @@ export default function ComponentLayout({ children }: { children: React.ReactNod
     { icon: IconUser, label: "About Me", path: "/about" },
     { icon: IconCoin, label: "Price List", path: "/pricing" },
     { icon: IconMessage, label: "Contact", path: "/contact" },
-  ]
+  ];
 
   const isActive = (path: string) => {
-    if (path === "/" && pathname === "/") return true
-    if (path !== "/" && pathname.startsWith(path)) return true
-    return false
-  }
+    if (path === "/" && pathname === "/") return true;
+    if (path !== "/" && pathname.startsWith(path)) return true;
+    return false;
+  };
 
   return (
     <AppShell
@@ -56,10 +60,8 @@ export default function ComponentLayout({ children }: { children: React.ReactNod
         width: 250,
         breakpoint: "md",
         collapsed: { mobile: !opened },
-        
       }}
       padding={0}
-      
     >
       {/* Mobile Header with Burger */}
       <AppShell.Header display={{ md: "none" }}>
@@ -69,17 +71,22 @@ export default function ComponentLayout({ children }: { children: React.ReactNod
             <Text size="lg" fw={700}>
               Banuna Studio
             </Text>
-            <Avatar src={assetsPath.photo} size="md" radius="xl" />
+            <Avatar src={opened ? assetsPath.avatar : assetsPath.logo} size="md" radius="xl" style={{transition: "all 2s"}}/>
           </Group>
         </Group>
       </AppShell.Header>
 
       {/* Sidebar/Navbar */}
-      <AppShell.Navbar p="md"
-      >
+      <AppShell.Navbar p="md">
         <Box>
           <Box ta="center" mb={20}>
-            <Avatar src={assetsPath.photo} size={120} radius={120} mx="auto" mb={10} />
+            <Avatar
+              src={assetsPath.logo}
+              size={150}
+              radius={120}
+              mx="auto"
+              mb={10}
+            />
             <Text size="xl" fw={700} c="white">
               Bagas Banuna
             </Text>
@@ -104,11 +111,13 @@ export default function ComponentLayout({ children }: { children: React.ReactNod
                 className={isActive(item.path) ? "active-nav-link" : "nav-link"}
                 style={{
                   borderRadius: theme.radius.sm,
-                  backgroundColor: isActive(item.path) ? theme.colors.dark[6] : "transparent",
+                  backgroundColor: isActive(item.path)
+                    ? theme.colors.dark[6]
+                    : "transparent",
                 }}
                 onClick={() => {
                   if (window.innerWidth < Number(theme.breakpoints.md)) {
-                    close()
+                    close();
                   }
                 }}
               >
@@ -139,5 +148,5 @@ export default function ComponentLayout({ children }: { children: React.ReactNod
 
       <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
-  )
+  );
 }
