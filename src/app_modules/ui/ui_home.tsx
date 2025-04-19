@@ -1,5 +1,6 @@
 "use client";
 
+import { useLanguage } from "@/app/context/language-context";
 import { assetsPath } from "@/lib/assets_path";
 import {
   Avatar,
@@ -27,6 +28,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   const theme = useMantineTheme();
+  const { t } = useLanguage();
 
   const features = [
     {
@@ -77,16 +79,14 @@ export default function HomePage() {
           <Grid gutter={50} align="center">
             <Grid.Col span={{ base: 12, md: 6 }}>
               <Title order={1} size={50} fw={800} lh={1.1} mb="md" c="white">
-                <Text inherit>Transforming Ideas into</Text>
+                <Text inherit>{t("home.hero.title1")}</Text>
                 <Text inherit c="blue">
-                  Digital Experiences
+                  {t("home.hero.title2")}
                 </Text>
               </Title>
 
               <Text size="lg" c="dimmed" mt="xl" maw={500}>
-                I am a web developer specializing in creating modern, user-friendly
-                websites that help businesses thrive online. My goal is to
-                deliver high-quality solutions tailored to your needs.
+                {t("home.hero.description")}
               </Text>
 
               <Group mt={30}>
@@ -96,7 +96,7 @@ export default function HomePage() {
                   size="lg"
                   color="blue"
                 >
-                  View My Work
+                  {t("home.hero.button1")}
                 </Button>
                 <Button
                   component={Link}
@@ -104,7 +104,7 @@ export default function HomePage() {
                   size="lg"
                   variant="outline"
                 >
-                  Get In Touch
+                  {t("home.hero.button2")}
                 </Button>
               </Group>
             </Grid.Col>
@@ -130,7 +130,7 @@ export default function HomePage() {
         <Container size="lg">
           <Box ta="center" mb={50}>
             <Title order={2} size="h1" fw={700} c="white">
-              My Services
+              {t("home.services.title")}
             </Title>
             <Box
               w={60}
@@ -141,8 +141,7 @@ export default function HomePage() {
               style={{ borderRadius: 2 }}
             />
             <Text size="lg" c="dimmed" maw={800} mx="auto" mt="xl">
-              I offer a comprehensive range of web development and design
-              services to help you establish a strong online presence.
+              {t("home.services.description")}
             </Text>
           </Box>
 
@@ -168,7 +167,7 @@ export default function HomePage() {
 
           <Box ta="center" mt={50}>
             <Button component={Link} href="/pricing" size="lg" color="blue">
-              View Pricing
+              {t("home.services.button")}
             </Button>
           </Box>
         </Container>
@@ -179,7 +178,7 @@ export default function HomePage() {
         <Container size="lg">
           <Box ta="center" mb={50}>
             <Title order={2} size="h1" fw={700} c="white">
-              Recent Projects
+              {t("home.projects.title")}
             </Title>
             <Box
               w={60}
@@ -190,8 +189,7 @@ export default function HomePage() {
               style={{ borderRadius: 2 }}
             />
             <Text size="lg" c="dimmed" maw={800} mx="auto" mt="xl">
-              Take a look at some of my latest work. Each project represents a
-              unique challenge and solution.
+              {t("home.projects.description")}
             </Text>
           </Box>
 
@@ -227,7 +225,7 @@ export default function HomePage() {
                     component={Link}
                     href={`/portofolio/project-${item}`}
                   >
-                    View Details
+                    {t("home.projects.button")}
                   </Button>
                 </Box>
               </Box>
@@ -252,7 +250,7 @@ export default function HomePage() {
         <Container size="lg">
           <Box ta="center" mb={50}>
             <Title order={2} size="h1" fw={700} c="white">
-              Client Testimonials
+              {t("home.testimonials.title")}
             </Title>
             <Box
               w={60}
@@ -263,8 +261,7 @@ export default function HomePage() {
               style={{ borderRadius: 2 }}
             />
             <Text size="lg" c="dimmed" maw={800} mx="auto" mt="xl">
-              Hear what my clients have to say about their experience working
-              with me. Their success is my success.
+              {t("home.testimonials.description")}
             </Text>
           </Box>
 
@@ -336,14 +333,14 @@ export default function HomePage() {
       <Box py={100} bg={theme.colors.dark[7]}>
         <Container size="md" ta="center">
           <Title order={2} size="h1" fw={800} c="white">
-            Ready to Start Your Project?
+            {t("home.cta.title")}
           </Title>
           <Text size="lg" c="dimmed" maw={600} mx="auto" mt="xl">
-            {"Let's work together to create something amazing. Whether you have a specific project in mind or just want to discuss ideas, I'm here to help."}
+            {t("home.cta.description")}
           </Text>
           <Group justify="center" mt={40}>
             <Button component={Link} href="/contact" size="lg" color="blue">
-              Get in Touch
+              {t("home.cta.button1")}
             </Button>
             <Button
               component={Link}
@@ -351,7 +348,7 @@ export default function HomePage() {
               size="lg"
               variant="outline"
             >
-              View Pricing
+              {t("home.cta.button2")}
             </Button>
           </Group>
         </Container>

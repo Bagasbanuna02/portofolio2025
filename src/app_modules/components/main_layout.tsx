@@ -29,6 +29,8 @@ import {
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLanguage } from "@/app/context/language-context";
+import { LanguageSwitcher } from "@/app/components/language-switcher";
 
 export default function ComponentLayout({
   children,
@@ -38,13 +40,14 @@ export default function ComponentLayout({
   const [opened, { toggle, close }] = useDisclosure(false);
   const theme = useMantineTheme();
   const pathname = usePathname();
+  const { t } = useLanguage()
 
   const navLinks = [
-    { icon: IconHome, label: "Home", path: "/" },
-    { icon: IconBriefcase, label: "Portfolio", path: "/portofolio" },
-    { icon: IconUser, label: "About Me", path: "/about" },
-    { icon: IconCoin, label: "Price List", path: "/pricing" },
-    { icon: IconMessage, label: "Contact", path: "/contact" },
+    { icon: IconHome, label: t("nav.home"), path: "/" },
+    { icon: IconBriefcase, label: t("nav.portfolio"), path: "/portfolio" },
+    { icon: IconUser, label: t("nav.about"), path: "/about" },
+    { icon: IconCoin, label: t("nav.pricing"), path: "/pricing" },
+    { icon: IconMessage, label: t("nav.contact"), path: "/contact" },
   ];
 
   const isActive = (path: string) => {
@@ -71,7 +74,12 @@ export default function ComponentLayout({
             <Text size="lg" fw={700}>
               Banuna Studio
             </Text>
-            <Avatar src={opened ? assetsPath.avatar : assetsPath.logo} size="md" radius="xl" style={{transition: "all 2s"}}/>
+            <Avatar
+              src={opened ? assetsPath.avatar : assetsPath.logo}
+              size="md"
+              radius="xl"
+              style={{ transition: "all 2s" }}
+            />
           </Group>
         </Group>
       </AppShell.Header>
@@ -143,6 +151,11 @@ export default function ComponentLayout({
               <IconMail size={18} />
             </ThemeIcon>
           </Group>
+
+          {/* Language Switcher */}
+          <Box mt="xl" px="xs">
+            <LanguageSwitcher />
+          </Box>
         </Box>
       </AppShell.Navbar>
 

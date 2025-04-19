@@ -302,7 +302,7 @@ export default function ContactPage() {
             </Button>
             <Button
               component={Link}
-              href="/portfolio"
+              href="/portofolio"
               size="lg"
               variant="outline"
             >
