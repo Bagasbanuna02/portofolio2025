@@ -32,24 +32,76 @@ const enTranslations: Record<string, string> = {
   "nav.pricing": "Price List",
   "nav.contact": "Contact",
 
-  // Home page
+  // Home page - Hero Section
   "home.hero.title1": "Transforming Ideas into",
   "home.hero.title2": "Digital Experiences",
   "home.hero.description":
     "I'm a passionate web developer specializing in creating elegant, functional websites and applications that help businesses grow and succeed in the digital world.",
   "home.hero.button1": "View My Work",
   "home.hero.button2": "Get In Touch",
+
+  // Home page - Services Section
   "home.services.title": "My Services",
   "home.services.description":
     "I offer a comprehensive range of web development and design services to help you establish a strong online presence.",
   "home.services.button": "View Pricing",
+
+  // Home page - Services Items
+  "home.services.item1.title": "Modern Web Development",
+  "home.services.item1.description":
+    "Building responsive, fast, and user-friendly websites using the latest technologies.",
+  "home.services.item2.title": "Mobile-First Approach",
+  "home.services.item2.description":
+    "Ensuring your website looks and works perfectly on all devices, from phones to desktops.",
+  "home.services.item3.title": "UI/UX Design",
+  "home.services.item3.description":
+    "Creating intuitive and beautiful interfaces that enhance user experience.",
+  "home.services.item4.title": "SEO Optimization",
+  "home.services.item4.description":
+    "Implementing best practices to improve your visibility in search engines.",
+  "home.services.item5.title": "Clean Code",
+  "home.services.item5.description":
+    "Writing maintainable, well-documented code that's easy to extend and update.",
+  "home.services.item6.title": "Performance Optimization",
+  "home.services.item6.description":
+    "Ensuring your website loads quickly and runs smoothly for all users.",
+
+  // Home page - Projects Section
   "home.projects.title": "Recent Projects",
   "home.projects.description":
     "Take a look at some of my latest work. Each project represents a unique challenge and solution.",
   "home.projects.button": "View All Projects",
+  "home.projects.viewDetails": "View Details",
+  "home.projects.category": "Web Design / Development",
+  "home.projects.buttonViewAll": "View All Projects",
+
+  // Home page - Testimonials Section
   "home.testimonials.title": "Client Testimonials",
   "home.testimonials.description":
     "Here's what my clients have to say about working with me.",
+
+  // Home page - Testimonial Items
+  "home.testimonials.client1.name": "Sarah Johnson",
+  "home.testimonials.client1.position": "CEO, TechStart",
+  "home.testimonials.client1.quote":
+    "I gave Banuna Studio a chance to help me design and develop a website for my company. They were very enthusiastic and helped me create a simple and functional design. I am very satisfied with the results.",
+
+  "home.testimonials.client2.name": "Michael Chen",
+  "home.testimonials.client2.position": "Marketing Director, GrowthLabs",
+  "home.testimonials.client2.quote":
+    "I was impressed by the attention to detail and the ability to translate our vision into a beautiful, functional website. The process was smooth and the results speak for themselves.",
+
+  "home.testimonials.client3.name": "Emily Rodriguez",
+  "home.testimonials.client3.position": "Founder, DesignHub",
+  "home.testimonials.client3.quote":
+    "As a design professional, I have high standards for web development. This developer not only met those standards but raised the bar with their technical expertise and creative solutions.",
+
+  "home.testimonials.client4.name": "David Kim",
+  "home.testimonials.client4.position": "Product Manager, InnovateCorp",
+  "home.testimonials.client4.quote":
+    "The developer's ability to understand our complex requirements and deliver a user-friendly solution was remarkable. They were responsive, professional, and a pleasure to work with.",
+
+  // Home page - CTA Section
   "home.cta.title": "Ready to Start Your Project?",
   "home.cta.description":
     "Let's work together to create a website that helps your business grow and succeed in the digital world.",
@@ -144,24 +196,76 @@ const idTranslations: Record<string, string> = {
   "nav.pricing": "Daftar Harga",
   "nav.contact": "Kontak",
 
-  // Home page
+  // Home page - Hero Section
   "home.hero.title1": "Mengubah Ide Menjadi",
   "home.hero.title2": "Pengalaman Digital",
   "home.hero.description":
     "Saya adalah pengembang web yang bersemangat dalam menciptakan situs web dan aplikasi yang elegan, fungsional yang membantu bisnis tumbuh dan sukses di dunia digital.",
   "home.hero.button1": "Lihat Karya Saya",
   "home.hero.button2": "Hubungi Saya",
+
+  // Home page - Services Section
   "home.services.title": "Layanan Saya",
   "home.services.description":
     "Saya menawarkan berbagai layanan pengembangan dan desain web untuk membantu Anda membangun kehadiran online yang kuat.",
   "home.services.button": "Lihat Harga",
+
+  // Home page - Services Items
+  "home.services.item1.title": "Pengembangan Web Modern",
+  "home.services.item1.description":
+    "Membangun situs web yang responsif, cepat, dan ramah pengguna menggunakan teknologi terbaru.",
+  "home.services.item2.title": "Pendekatan Mobile-First",
+  "home.services.item2.description":
+    "Memastikan situs web Anda terlihat dan berfungsi dengan sempurna di semua perangkat, dari ponsel hingga desktop.",
+  "home.services.item3.title": "Desain UI/UX",
+  "home.services.item3.description":
+    "Menciptakan antarmuka yang intuitif dan indah yang meningkatkan pengalaman pengguna.",
+  "home.services.item4.title": "Optimasi SEO",
+  "home.services.item4.description":
+    "Menerapkan praktik terbaik untuk meningkatkan visibilitas Anda di mesin pencari.",
+  "home.services.item5.title": "Kode Bersih",
+  "home.services.item5.description":
+    "Menulis kode yang mudah dipelihara, terdokumentasi dengan baik, dan mudah dikembangkan dan diperbarui.",
+  "home.services.item6.title": "Optimasi Kinerja",
+  "home.services.item6.description":
+    "Memastikan situs web Anda dimuat dengan cepat dan berjalan lancar untuk semua pengguna.",
+
+  // Home page - Projects Section
   "home.projects.title": "Proyek Terbaru",
   "home.projects.description":
     "Lihat beberapa karya terbaru saya. Setiap proyek mewakili tantangan dan solusi yang unik.",
   "home.projects.button": "Lihat Semua Proyek",
+  "home.projects.viewDetails": "Lihat Detail",
+  "home.projects.category": "Desain Web / Pengembangan",
+  "home.projects.buttonViewAll": "Lihat Semua Proyek",
+
+  // Home page - Testimonials Section
   "home.testimonials.title": "Testimoni Klien",
   "home.testimonials.description":
     "Berikut adalah apa yang klien saya katakan tentang bekerja dengan saya.",
+
+  // Home page - Testimonial Items
+  "home.testimonials.client1.name": "Sarah Johnson",
+  "home.testimonials.client1.position": "CEO, TechStart",
+  "home.testimonials.client1.quote":
+    "Saya memberi Banuna Studio kesempatan untuk membantu saya mendesain dan mengembangkan situs web untuk perusahaan saya. Ia sangat antusias dan membantu saya membuat desain yang sederhana dan fungsional. Saya sangat puas dengan hasilnya.",
+
+  "home.testimonials.client2.name": "Michael Chen",
+  "home.testimonials.client2.position": "Direktur Pemasaran, GrowthLabs",
+  "home.testimonials.client2.quote":
+    "Saya terkesan dengan perhatian terhadap detail dan kemampuan untuk menerjemahkan visi kami menjadi situs web yang indah dan fungsional. Prosesnya berjalan lancar dan hasilnya berbicara sendiri.",
+
+  "home.testimonials.client3.name": "Emily Rodriguez",
+  "home.testimonials.client3.position": "Pendiri, DesignHub",
+  "home.testimonials.client3.quote":
+    "Sebagai profesional desain, saya memiliki standar tinggi untuk pengembangan web. Pengembang ini tidak hanya memenuhi standar tersebut tetapi juga meningkatkan standar dengan keahlian teknis dan solusi kreatif mereka.",
+
+  "home.testimonials.client4.name": "David Kim",
+  "home.testimonials.client4.position": "Manajer Produk, InnovateCorp",
+  "home.testimonials.client4.quote":
+    "Kemampuan pengembang untuk memahami persyaratan kompleks kami dan memberikan solusi yang ramah pengguna sangat luar biasa. Mereka responsif, profesional, dan menyenangkan untuk bekerja sama.",
+
+  // Home page - CTA Section
   "home.cta.title": "Siap Memulai Proyek Anda?",
   "home.cta.description":
     "Mari bekerja sama untuk membuat situs web yang membantu bisnis Anda tumbuh dan sukses di dunia digital.",
@@ -256,7 +360,7 @@ const translations: Record<Language, Record<string, string>> = {
 // Create the provider component
 export function LanguageProvider({ children }: { children: ReactNode }) {
   // Get initial language from localStorage if available, otherwise default to English
-  const [language, setLanguage] = useState<Language>("id");
+  const [language, setLanguage] = useState<Language>("en");
 
   // Load saved language preference from localStorage on initial render
   useEffect(() => {

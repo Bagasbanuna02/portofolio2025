@@ -1,10 +1,10 @@
 "use client";
 
-import type React from "react";
+import ComponentMainLayout from "@/app_modules/components/main_layout";
 import { MantineProvider } from "@mantine/core";
-import { theme } from "../theme";
+import type React from "react";
 import { LanguageProvider } from "../context/language-context";
-import MainLayout from "./main-layout";
+import { theme } from "../theme";
 
 export default function ClientLayout({
   children,
@@ -14,7 +14,7 @@ export default function ClientLayout({
   return (
     <MantineProvider theme={theme} defaultColorScheme="dark">
       <LanguageProvider>
-        <MainLayout>{children}</MainLayout>
+        <ComponentMainLayout>{children}</ComponentMainLayout>
       </LanguageProvider>
     </MantineProvider>
   );

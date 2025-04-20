@@ -1,6 +1,6 @@
 "use client";
 
-import { assetsPath } from "@/lib/assets_path";
+import { imageAssetPath } from "@/lib/assets_path";
 import {
   Box,
   Button,
@@ -81,7 +81,7 @@ export default function AboutPage() {
           }}>
             <Stack justify="center">
               <Image
-                src={assetsPath.photo}
+                src={imageAssetPath.photo}
                 alt="Profile"
                 radius="md"
                 style={{

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { assetsPath } from "@/lib/assets_path";
+import { imageAssetPath } from "@/lib/assets_path";
 import {
   Badge,
   Box,
@@ -320,7 +320,7 @@ function ProjectCard({ project }: { project: any }) {
     >
       <Box style={{ position: "relative", overflow: "hidden", height: 200 }}>
         <Image
-          src={assetsPath.dummy_image}
+          src={imageAssetPath.dummy_image}
           alt={project.title}
           height={200}
           style={{ objectFit: "cover" }}

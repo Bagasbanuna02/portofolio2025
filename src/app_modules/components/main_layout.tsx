@@ -2,7 +2,9 @@
 
 import type React from "react";
 
-import { assetsPath } from "@/lib/assets_path";
+import { useLanguage } from "@/app/context/language-context";
+import { imageAssetPath } from "@/lib/assets_path";
+import { pagePath } from "@/lib/page_path";
 import {
   Anchor,
   AppShell,
@@ -14,7 +16,7 @@ import {
   Stack,
   Text,
   ThemeIcon,
-  useMantineTheme
+  useMantineTheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
@@ -29,10 +31,8 @@ import {
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLanguage } from "@/app/context/language-context";
-import { LanguageSwitcher } from "@/app/components/language-switcher";
 
-export default function ComponentLayout({
+export default function ComponentMainLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -40,14 +40,18 @@ export default function ComponentLayout({
   const [opened, { toggle, close }] = useDisclosure(false);
   const theme = useMantineTheme();
   const pathname = usePathname();
-  const { t } = useLanguage()
+  const { t } = useLanguage();
 
   const navLinks = [
-    { icon: IconHome, label: t("nav.home"), path: "/" },
-    { icon: IconBriefcase, label: t("nav.portfolio"), path: "/portfolio" },
-    { icon: IconUser, label: t("nav.about"), path: "/about" },
-    { icon: IconCoin, label: t("nav.pricing"), path: "/pricing" },
-    { icon: IconMessage, label: t("nav.contact"), path: "/contact" },
+    { icon: IconHome, label: t("nav.home"), path: pagePath.home },
+    {
+      icon: IconBriefcase,
+      label: t("nav.portfolio"),
+      path: pagePath.portofolio,
+    },
+    { icon: IconUser, label: t("nav.about"), path: pagePath.about },
+    { icon: IconCoin, label: t("nav.pricing"), path: pagePath.pricing },
+    { icon: IconMessage, label: t("nav.contact"), path: pagePath.contact },
   ];
 
   const isActive = (path: string) => {
@@ -75,7 +79,7 @@ export default function ComponentLayout({
               Banuna Studio
             </Text>
             <Avatar
-              src={opened ? assetsPath.avatar : assetsPath.logo}
+              src={opened ? imageAssetPath.avatar : imageAssetPath.logo}
               size="md"
               radius="xl"
               style={{ transition: "all 2s" }}
@@ -89,7 +93,7 @@ export default function ComponentLayout({
         <Box>
           <Box ta="center" mb={20}>
             <Avatar
-              src={assetsPath.logo}
+              src={imageAssetPath.logo}
               size={150}
               radius={120}
               mx="auto"
@@ -153,9 +157,9 @@ export default function ComponentLayout({
           </Group>
 
           {/* Language Switcher */}
-          <Box mt="xl" px="xs">
+          {/* <Box mt="xl" px="xs">
             <LanguageSwitcher />
-          </Box>
+          </Box> */}
         </Box>
       </AppShell.Navbar>
 

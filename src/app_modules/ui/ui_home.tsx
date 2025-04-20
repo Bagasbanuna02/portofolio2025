@@ -1,7 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/app/context/language-context";
-import { assetsPath } from "@/lib/assets_path";
+import { imageAssetPath } from "@/lib/assets_path";
 import {
   Avatar,
   Box,
@@ -33,40 +33,65 @@ export default function HomePage() {
   const features = [
     {
       icon: IconBrandReact,
-      title: "Modern Web Development",
-      description:
-        "Building responsive, fast, and user-friendly websites using the latest technologies.",
+      title: t("home.services.item1.title"),
+      description: t("home.services.item1.description"),
     },
     {
       icon: IconDeviceMobile,
-      title: "Mobile-First Approach",
-      description:
-        "Ensuring your website looks and works perfectly on all devices, from phones to desktops.",
+      title: t("home.services.item2.title"),
+      description: t("home.services.item2.description"),
     },
     {
       icon: IconBrandFigma,
-      title: "UI/UX Design",
-      description:
-        "Creating intuitive and beautiful interfaces that enhance user experience.",
+      title: t("home.services.item3.title"),
+      description: t("home.services.item3.description"),
     },
     {
       icon: IconSeo,
-      title: "SEO Optimization",
-      description:
-        "Implementing best practices to improve your visibility in search engines.",
+      title: t("home.services.item4.title"),
+      description: t("home.services.item4.description"),
     },
     {
       icon: IconCode,
-      title: "Clean Code",
-      description:
-        "Writing maintainable, well-documented code that's easy to extend and update.",
+      title: t("home.services.item5.title"),
+      description: t("home.services.item5.description"),
     },
     {
       icon: IconRocket,
-      title: "Performance Optimization",
-      description:
-        "Ensuring your website loads quickly and runs smoothly for all users.",
+      title: t("home.services.item6.title"),
+      description: t("home.services.item6.description"),
     },
+  ];
+
+  const recentProjects = [
+    {
+      title: "Daribalimice",
+      image: imageAssetPath.project_image1,
+      link: "https://daribalimice.vercel.app/home",
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: "Jerry Kurnia Lampe",
+      position: "CEO, Daribalimice",
+      quote: t("home.testimonials.client1.quote"),
+    },
+    // {
+    //   name: t("home.testimonials.client2.name"),
+    //   position: t("home.testimonials.client2.position"),
+    //   quote: t("home.testimonials.client2.quote"),
+    // },
+    // {
+    //   name: t("home.testimonials.client3.name"),
+    //   position: t("home.testimonials.client3.position"),
+    //   quote: t("home.testimonials.client3.quote"),
+    // },
+    // {
+    //   name: t("home.testimonials.client4.name"),
+    //   position: t("home.testimonials.client4.position"),
+    //   quote: t("home.testimonials.client4.quote"),
+    // },
   ];
 
   return (
@@ -111,7 +136,7 @@ export default function HomePage() {
 
             <Grid.Col span={{ base: 12, md: 6 }}>
               <Image
-                src={assetsPath.avatar}
+                src={imageAssetPath.avatar}
                 alt="Hero Image"
                 radius="md"
                 style={{
@@ -194,9 +219,9 @@ export default function HomePage() {
           </Box>
 
           <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={30}>
-            {[1, 2, 3].map((item) => (
+            {recentProjects.map((item, i) => (
               <Box
-                key={item}
+                key={i}
                 className="project-container"
                 style={{
                   position: "relative",
@@ -206,7 +231,7 @@ export default function HomePage() {
                 }}
               >
                 <Image
-                  src={assetsPath.dummy_image}
+                  src={imageAssetPath.project_image1}
                   alt={`Project ${item}`}
                   height={320}
                   style={{ objectFit: "cover" }}
@@ -214,18 +239,23 @@ export default function HomePage() {
                 <Box className="project-overlay" />
                 <Box className="project-info">
                   <Text fw={700} size="xl" c="white">
-                    Project {item} Title
+                    {item.title}
                   </Text>
-                  <Text c="gray.3" mb="md">
-                    Web Design / Development
-                  </Text>
+                  {/* <Text fw={700} size="xl" c="white">
+                    Project {item.title} Title
+                  </Text> */}
+                  {/* <Text c="gray.3" mb="md">
+                    {t("home.projects.category")}
+                  </Text> */}
+
                   <Button
+                    target="_blank"
                     variant="outline"
                     color="white"
                     component={Link}
-                    href={`/portofolio/project-${item}`}
+                    href={item.link}
                   >
-                    {t("home.projects.button")}
+                    {t("home.projects.viewDetails")}
                   </Button>
                 </Box>
               </Box>
@@ -239,7 +269,7 @@ export default function HomePage() {
               size="lg"
               variant="outline"
             >
-              View All Projects
+              {t("home.projects.buttonViewAll")}
             </Button>
           </Box>
         </Container>
@@ -266,32 +296,7 @@ export default function HomePage() {
           </Box>
 
           <SimpleGrid cols={{ base: 1, md: 2 }} spacing={30}>
-            {[
-              {
-                name: "Sarah Johnson",
-                position: "CEO, TechStart",
-                quote:
-                  "Working with this developer was a game-changer for our business. They delivered a website that exceeded our expectations and has significantly improved our online presence.",
-              },
-              {
-                name: "Michael Chen",
-                position: "Marketing Director, GrowthLabs",
-                quote:
-                  "I was impressed by the attention to detail and the ability to translate our vision into a beautiful, functional website. The process was smooth and the results speak for themselves.",
-              },
-              {
-                name: "Emily Rodriguez",
-                position: "Founder, DesignHub",
-                quote:
-                  "As a design professional, I have high standards for web development. This developer not only met those standards but raised the bar with their technical expertise and creative solutions.",
-              },
-              {
-                name: "David Kim",
-                position: "Product Manager, InnovateCorp",
-                quote:
-                  "The developer's ability to understand our complex requirements and deliver a user-friendly solution was remarkable. They were responsive, professional, and a pleasure to work with.",
-              },
-            ].map((testimonial, index) => (
+            {testimonials.map((testimonial, index) => (
               <Box
                 key={index}
                 p="xl"
@@ -309,7 +314,7 @@ export default function HomePage() {
                 </Text>
                 <Group>
                   <Avatar
-                    src={assetsPath.avatar}
+                    src={imageAssetPath.dummy_user}
                     alt={testimonial.name}
                     radius="xl"
                     size="md"
