@@ -4,8 +4,8 @@ import "./styles/global-styles.css"; // Import the custom styles
 import ClientWrapper from "./components/client-wrapper";
 
 export const metadata = {
-  title: "Professional Portfolio",
-  description: "A showcase of my work and skills",
+  title: "Banuna Studio",
+  description: "Touch Your Idea With Banuna Studio",
 };
 
 export default function RootLayout({

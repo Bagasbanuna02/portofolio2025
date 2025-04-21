@@ -15,22 +15,19 @@ import {
   Group,
   Stack,
   Text,
-  ThemeIcon,
-  useMantineTheme,
+  useMantineTheme
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
-  IconBrandGithub,
-  IconBrandLinkedin,
   IconBriefcase,
   IconCoin,
   IconHome,
-  IconMail,
   IconMessage,
-  IconUser,
+  IconUser
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { CompButtonMediaSocial } from "./comp_button_mediaSocial";
 
 export default function ComponentMainLayout({
   children,
@@ -145,15 +142,7 @@ export default function ComponentMainLayout({
         <Box mt="auto">
           <Divider my="sm" />
           <Group justify="center" mt="md">
-            <ThemeIcon size={36} radius="xl" color="blue">
-              <IconBrandGithub size={18} />
-            </ThemeIcon>
-            <ThemeIcon size={36} radius="xl" color="blue">
-              <IconBrandLinkedin size={18} />
-            </ThemeIcon>
-            <ThemeIcon size={36} radius="xl" color="blue">
-              <IconMail size={18} />
-            </ThemeIcon>
+            <CompButtonMediaSocial themeSize={36} iconSize={18} />
           </Group>
 
           {/* Language Switcher */}

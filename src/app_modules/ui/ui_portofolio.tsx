@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { imageAssetPath } from "@/lib/assets_path";
 import {
   Badge,
   Box,
@@ -17,94 +16,10 @@ import {
 } from "@mantine/core";
 import { IconExternalLink } from "@tabler/icons-react";
 import Link from "next/link";
+import { Portfolio_projects } from "../components/portofolio/list_porject";
 
 export default function PortfolioPage() {
   const theme = useMantineTheme();
-
-  // Sample portfolio projects data
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      category: "web",
-      tags: ["React", "Node.js", "MongoDB"],
-      description:
-        "A full-featured e-commerce platform with product management, cart functionality, payment processing, and order tracking.",
-      image: "/placeholder.svg?height=600&width=800",
-    },
-    {
-      id: 2,
-      title: "Corporate Website Redesign",
-      category: "web",
-      tags: ["Next.js", "Tailwind CSS", "Contentful"],
-      description:
-        "Complete redesign of a corporate website with improved UX, responsive design, and content management system integration.",
-      image: "/placeholder.svg?height=600&width=800",
-    },
-    {
-      id: 3,
-      title: "Mobile Banking App",
-      category: "mobile",
-      tags: ["React Native", "Redux", "Firebase"],
-      description:
-        "A secure and user-friendly mobile banking application with features like account management, transfers, and bill payments.",
-      image: "/placeholder.svg?height=600&width=800",
-    },
-    {
-      id: 4,
-      title: "Real Estate Listing Platform",
-      category: "web",
-      tags: ["Vue.js", "Express", "PostgreSQL"],
-      description:
-        "A comprehensive real estate platform allowing users to search, filter, and view property listings with interactive maps.",
-      image: "/placeholder.svg?height=600&width=800",
-    },
-    {
-      id: 5,
-      title: "Health & Fitness Tracker",
-      category: "mobile",
-      tags: ["Flutter", "GraphQL", "AWS"],
-      description:
-        "A cross-platform mobile app for tracking fitness activities, nutrition, and health metrics with personalized insights.",
-      image: "/placeholder.svg?height=600&width=800",
-    },
-    {
-      id: 6,
-      title: "Educational Learning Platform",
-      category: "web",
-      tags: ["Angular", "Django", "MySQL"],
-      description:
-        "An interactive learning platform with course management, video lessons, quizzes, and progress tracking for students.",
-      image: "/placeholder.svg?height=600&width=800",
-    },
-    {
-      id: 7,
-      title: "Restaurant Ordering System",
-      category: "web",
-      tags: ["React", "Express", "MongoDB"],
-      description:
-        "An online ordering system for restaurants with menu management, order processing, and delivery tracking.",
-      image: "/placeholder.svg?height=600&width=800",
-    },
-    {
-      id: 8,
-      title: "Travel Companion App",
-      category: "mobile",
-      tags: ["React Native", "Node.js", "MongoDB"],
-      description:
-        "A travel companion app with itinerary planning, location-based recommendations, and offline maps for travelers.",
-      image: "/placeholder.svg?height=600&width=800",
-    },
-    {
-      id: 9,
-      title: "Portfolio Website Template",
-      category: "design",
-      tags: ["Figma", "HTML/CSS", "JavaScript"],
-      description:
-        "A customizable portfolio website template designed for creative professionals with multiple layout options.",
-      image: "/placeholder.svg?height=600&width=800",
-    },
-  ];
 
   return (
     <Box>
@@ -145,7 +60,7 @@ export default function PortfolioPage() {
 
             <Tabs.Panel value="all">
               <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={30}>
-                {projects.map((project) => (
+                {Portfolio_projects.map((project) => (
                   <ProjectCard key={project.id} project={project} />
                 ))}
               </SimpleGrid>
@@ -153,31 +68,31 @@ export default function PortfolioPage() {
 
             <Tabs.Panel value="web">
               <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={30}>
-                {projects
-                  .filter((project) => project.category === "web")
-                  .map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                  ))}
+                {Portfolio_projects.filter(
+                  (project) => project.category === "web"
+                ).map((project) => (
+                  <ProjectCard key={project.id} project={project} />
+                ))}
               </SimpleGrid>
             </Tabs.Panel>
 
             <Tabs.Panel value="mobile">
               <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={30}>
-                {projects
-                  .filter((project) => project.category === "mobile")
-                  .map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                  ))}
+                {Portfolio_projects.filter(
+                  (project) => project.category === "mobile"
+                ).map((project) => (
+                  <ProjectCard key={project.id} project={project} />
+                ))}
               </SimpleGrid>
             </Tabs.Panel>
 
             <Tabs.Panel value="design">
               <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={30}>
-                {projects
-                  .filter((project) => project.category === "design")
-                  .map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                  ))}
+                {Portfolio_projects.filter(
+                  (project) => project.category === "design"
+                ).map((project) => (
+                  <ProjectCard key={project.id} project={project} />
+                ))}
               </SimpleGrid>
             </Tabs.Panel>
           </Tabs>
@@ -320,7 +235,7 @@ function ProjectCard({ project }: { project: any }) {
     >
       <Box style={{ position: "relative", overflow: "hidden", height: 200 }}>
         <Image
-          src={imageAssetPath.dummy_image}
+          src={project.image}
           alt={project.title}
           height={200}
           style={{ objectFit: "cover" }}

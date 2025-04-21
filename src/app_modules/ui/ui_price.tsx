@@ -24,15 +24,15 @@ export default function PricingPage() {
   const pricingPlans = [
     {
       title: "Basic",
-      price: "$999",
+      price: "Rp 1,5 JT",
       description: "Perfect for small businesses and personal websites",
       features: [
         { text: "Responsive Design", included: true },
         { text: "Up to 5 Pages", included: true },
         { text: "Contact Form", included: true },
         { text: "Basic SEO Setup", included: true },
-        { text: "Content Management System", included: false },
-        { text: "E-commerce Functionality", included: false },
+        // { text: "Content Management System", included: false },
+        // { text: "E-commerce Functionality", included: false },
         { text: "Custom Animations", included: false },
         { text: "Priority Support", included: false },
       ],
@@ -41,16 +41,16 @@ export default function PricingPage() {
     },
     {
       title: "Professional",
-      price: "$2,499",
+      price: "Rp 3 JT",
       description: "Ideal for growing businesses and online stores",
       features: [
         { text: "Responsive Design", included: true },
         { text: "Up to 10 Pages", included: true },
         { text: "Contact Form", included: true },
         { text: "Advanced SEO Setup", included: true },
-        { text: "Content Management System", included: true },
-        { text: "E-commerce Functionality", included: true },
-        { text: "Custom Animations", included: false },
+        // { text: "Content Management System", included: true },
+        // { text: "E-commerce Functionality", included: true },
+        { text: "Custom Animations", included: true },
         { text: "Priority Support", included: false },
       ],
       popular: true,
@@ -58,15 +58,15 @@ export default function PricingPage() {
     },
     {
       title: "Premium",
-      price: "$4,999",
+      price: "Rp 7 JT",
       description: "Comprehensive solution for established businesses",
       features: [
         { text: "Responsive Design", included: true },
         { text: "Unlimited Pages", included: true },
         { text: "Advanced Contact Forms", included: true },
         { text: "Complete SEO Package", included: true },
-        { text: "Content Management System", included: true },
-        { text: "E-commerce Functionality", included: true },
+        // { text: "Content Management System", included: true },
+        // { text: "E-commerce Functionality", included: true },
         { text: "Custom Animations", included: true },
         { text: "Priority Support", included: true },
       ],
@@ -78,40 +78,41 @@ export default function PricingPage() {
   const customServices = [
     {
       title: "Website Redesign",
-      price: "From $1,500",
+      price: "From Rp 500.000",
       description:
         "Refresh your existing website with a modern design and improved functionality.",
     },
     {
-      title: "E-commerce Development",
-      price: "From $2,500",
-      description:
-        "Custom online store with product management, payment processing, and order tracking.",
-    },
-    {
-      title: "Custom Web Application",
-      price: "From $5,000",
-      description:
-        "Tailored web applications with user authentication, database integration, and custom features.",
-    },
-    {
       title: "Landing Page",
-      price: "From $750",
+      price: "From Rp 500.000",
       description:
         "High-converting landing page designed to showcase your product or service.",
     },
     {
-      title: "SEO Optimization",
-      price: "From $500",
-      description:
-        "Comprehensive SEO audit and optimization to improve your search engine rankings.",
-    },
-    {
       title: "Website Maintenance",
-      price: "From $150/month",
+      price: "From Rp 150.000",
       description:
         "Regular updates, security patches, backups, and technical support for your website.",
     },
+    // {
+    //   title: "E-commerce Development",
+    //   price: "From $2,500",
+    //   description:
+    //     "Custom online store with product management, payment processing, and order tracking.",
+    // },
+    // {
+    //   title: "Custom Web Application",
+    //   price: "From $5,000",
+    //   description:
+    //     "Tailored web applications with user authentication, database integration, and custom features.",
+    // },
+
+    // {
+    //   title: "SEO Optimization",
+    //   price: "From $500",
+    //   description:
+    //     "Comprehensive SEO audit and optimization to improve your search engine rankings.",
+    // },
   ];
 
   return (
@@ -194,7 +195,7 @@ export default function PricingPage() {
                 >
                   {plan.price}
                 </Text>
-                <Text c="dimmed" size="sm" ta="center" mb="xl">
+                <Text mt={"md"} c="dimmed" size="sm" ta="center" mb="xl">
                   One-time payment
                 </Text>
 
@@ -334,20 +335,20 @@ export default function PricingPage() {
                   "I typically require a 50% deposit to begin work, with the remaining balance due upon project completion. For larger projects, we can establish a milestone-based payment schedule.",
               },
               {
-                question: "Do you provide hosting services?",
-                answer:
-                  "While I don't provide hosting directly, I can recommend reliable hosting providers and help set up your website on your chosen platform. I can also manage the hosting setup process for you if needed.",
-              },
-              {
                 question: "Can you work with my existing brand guidelines?",
                 answer:
-                  "I can work with your existing brand guidelines to ensure your website aligns with your brand identity. If you don't have guidelines, I can help develop a consistent visual style for your website.",
+                "I can work with your existing brand guidelines to ensure your website aligns with your brand identity. If you don't have guidelines, I can help develop a consistent visual style for your website.",
               },
-              {
-                question: "Do you offer rush services for urgent projects?",
-                answer:
-                  "Yes, I can accommodate rush projects for an additional fee, depending on my current workload and the scope of your project. Please contact me to discuss your timeline and requirements.",
-              },
+              // {
+              //   question: "Do you provide hosting services?",
+              //   answer:
+              //     "While I don't provide hosting directly, I can recommend reliable hosting providers and help set up your website on your chosen platform. I can also manage the hosting setup process for you if needed.",
+              // },
+              // {
+              //   question: "Do you offer rush services for urgent projects?",
+              //   answer:
+              //     "Yes, I can accommodate rush projects for an additional fee, depending on my current workload and the scope of your project. Please contact me to discuss your timeline and requirements.",
+              // },
             ].map((faq, index) => (
               <Grid.Col key={index} span={{ base: 12, md: 6 }}>
                 <Box
