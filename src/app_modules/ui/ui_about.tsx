@@ -1,6 +1,6 @@
 "use client";
 
-import { assetsPath } from "@/lib/assets_path";
+import { imageAssetPath } from "@/lib/assets_path";
 import {
   Box,
   Button,
@@ -14,7 +14,6 @@ import {
   Stack,
   Text,
   ThemeIcon,
-  Timeline,
   Title,
   useMantineTheme,
 } from "@mantine/core";
@@ -26,10 +25,6 @@ import {
   IconBrandTypescript,
   IconCheck,
   IconCode,
-  IconDatabase,
-  IconDeviceMobile,
-  IconDownload,
-  IconSeo,
 } from "@tabler/icons-react";
 import Link from "next/link";
 
@@ -37,14 +32,14 @@ export default function AboutPage() {
   const theme = useMantineTheme();
 
   const skills = [
-    { name: "React / Next.js", level: 95 },
-    { name: "JavaScript / TypeScript", level: 90 },
-    { name: "HTML / CSS", level: 95 },
-    { name: "Node.js", level: 85 },
+    { name: "React / Next.js", level: 75 },
+    { name: "JavaScript / TypeScript", level: 70 },
+    { name: "HTML / CSS", level: 70 },
+    { name: "Node.js", level: 60 },
     { name: "UI/UX Design", level: 80 },
-    { name: "Database Design", level: 75 },
-    { name: "Mobile Development", level: 70 },
-    { name: "DevOps / AWS", level: 65 },
+    { name: "Database Design", level: 70 },
+    // { name: "Mobile Development", level: 70 },
+    // { name: "DevOps / AWS", level: 65 },
   ];
 
   return (
@@ -75,13 +70,15 @@ export default function AboutPage() {
       {/* About Me Section */}
       <Box py={80} bg={theme.colors.dark[8]}>
         <Container size="md">
-          <SimpleGrid cols={{
-            base: 1,
-            md: 2,
-          }}>
+          <SimpleGrid
+            cols={{
+              base: 1,
+              md: 2,
+            }}
+          >
             <Stack justify="center">
               <Image
-                src={assetsPath.photo}
+                src={imageAssetPath.photo}
                 alt="Profile"
                 radius="md"
                 style={{
@@ -105,10 +102,9 @@ export default function AboutPage() {
               />
 
               <Text size="lg" c="gray.3">
-                {` I'm a passionate web developer with over 5 years of experience
+                {` I'm a passionate web developer with over 3 years of experience
                 creating beautiful, functional websites and applications. I
-                specialize in front-end development, with expertise in React,
-                Next.js, and modern CSS frameworks.`}
+                specialize in front-end development, with expertise in Next.js, and modern CSS frameworks.`}
               </Text>
 
               <Text size="lg" c="gray.3" mt="md">
@@ -119,11 +115,11 @@ export default function AboutPage() {
                 exceptional digital products.
               </Text>
 
-              <Text size="lg" c="gray.3" mt="md">
+              {/* <Text size="lg" c="gray.3" mt="md">
                 {` When I'm not coding, you can find me exploring new technologies,
                 contributing to open-source projects, or sharing my knowledge
                 through blog posts and community events.`}
-              </Text>
+              </Text> */}
 
               <List
                 spacing="sm"
@@ -159,17 +155,15 @@ export default function AboutPage() {
               </List>
 
               <Group mt={30}>
-                <Button color="blue" leftSection={<IconDownload size={18} />}>
+                {/* <Button color="blue" leftSection={<IconDownload size={18} />}>
                   Download CV
-                </Button>
+                </Button> */}
                 <Button component={Link} href="/contact" variant="outline">
                   Contact Me
                 </Button>
               </Group>
             </Box>
           </SimpleGrid>
-
-        
         </Container>
       </Box>
 
@@ -239,11 +233,11 @@ export default function AboutPage() {
                   { icon: IconBrandJavascript, title: "JavaScript" },
                   { icon: IconBrandTypescript, title: "TypeScript" },
                   { icon: IconCode, title: "HTML/CSS" },
-                  { icon: IconDatabase, title: "MongoDB" },
+                  // { icon: IconDatabase, title: "MongoDB" },
                   { icon: IconBrandGithub, title: "Git" },
-                  { icon: IconDeviceMobile, title: "React Native" },
+                  // { icon: IconDeviceMobile, title: "React Native" },
                   { icon: IconBrandFigma, title: "Figma" },
-                  { icon: IconSeo, title: "SEO" },
+                  // { icon: IconSeo, title: "SEO" },
                 ].map((tech, index) => (
                   <Box
                     key={index}
@@ -274,7 +268,7 @@ export default function AboutPage() {
       </Box>
 
       {/* Experience Section */}
-      <Box py={80} bg={theme.colors.dark[8]}>
+      {/* <Box py={80} bg={theme.colors.dark[8]}>
         <Container size="lg">
           <Box ta="center" mb={50}>
             <Title order={2} size="h2" fw={700} c="white">
@@ -296,14 +290,14 @@ export default function AboutPage() {
 
           <Timeline active={-1} bulletSize={24} lineWidth={2} color="blue">
             <Timeline.Item
-              title="Senior Frontend Developer"
+              title="Fullstack Developer"
               bullet={<IconBrandReact size={12} />}
             >
               <Text c="dimmed" size="sm">
-                TechInnovate Inc. | 2021 - Present
+               Banuna Studio | 2023 - Present
               </Text>
               <Text size="md" mt={4} c="gray.3">
-                Lead the development of complex web applications using React and
+                Development of complex web applications using React and
                 Next.js. Collaborate with designers and backend developers to
                 implement responsive, accessible, and performant user
                 interfaces.
@@ -354,7 +348,7 @@ export default function AboutPage() {
             </Timeline.Item>
           </Timeline>
         </Container>
-      </Box>
+      </Box> */}
 
       {/* Education Section */}
       <Box py={80} bg={theme.colors.dark[7]}>
@@ -381,19 +375,20 @@ export default function AboutPage() {
                 style={{ borderRadius: theme.radius.md }}
               >
                 <Text fw={700} size="lg" c="white">
-                  Bachelor of Science in Computer Science
+                  Bachelor of Computer Science
                 </Text>
                 <Text c="dimmed" mb="md">
-                  University of Technology | 2014 - 2018
+                  Indonesian Institute of Business and Technology (INSTIKI) |
+                  2018 - 2022
                 </Text>
                 <Text c="gray.3">
                   Specialized in web development and user interface design.
-                  Completed coursework in algorithms, data structures, database
-                  systems, and software engineering principles.
+                  Experienced with modern frameworks such as React and Next.js.
+                  Familiar with UI/UX principles and tools like Figma.
                 </Text>
               </Box>
 
-              <Box
+              {/* <Box
                 p="xl"
                 bg={theme.colors.dark[6]}
                 className="process-step"
@@ -410,7 +405,7 @@ export default function AboutPage() {
                   technologies including JavaScript, React, Node.js, and
                   database integration.
                 </Text>
-              </Box>
+              </Box> */}
             </Grid.Col>
 
             <Grid.Col span={{ base: 12, md: 6 }}>
@@ -429,33 +424,33 @@ export default function AboutPage() {
               <SimpleGrid cols={1} spacing={20}>
                 {[
                   {
-                    title: "Advanced React and Redux",
-                    issuer: "Frontend Masters",
-                    year: "2022",
-                    description:
-                      "Comprehensive certification covering advanced React patterns, Redux state management, and performance optimization techniques.",
-                  },
-                  {
-                    title: "Full-Stack JavaScript Development",
-                    issuer: "Udemy",
+                    title: "Microsoft Technology Associate",
+                    issuer: "Database Fundamentals ",
                     year: "2021",
                     description:
-                      "End-to-end web application development using JavaScript, Node.js, Express, and MongoDB.",
+                      "Comprehensive certification covering core database concepts, T-SQL queries, data manipulation, normalization, and basic database administration using Microsoft SQL Server.",
                   },
                   {
-                    title: "UI/UX Design Fundamentals",
-                    issuer: "Interaction Design Foundation",
+                    title: "IC3 Digital Literacy Certification",
+                    issuer: "Computing Fundamentals",
+                    year: "2021",
+                    description:
+                      "Covered essential knowledge of hardware, software, operating systems, basic troubleshooting, and computer maintenance as part of global digital literacy skills..",
+                  },
+                  {
+                    title: "TOEIC® Listening and Reading Test",
+                    issuer: "Institutional Score Report",
                     year: "2020",
                     description:
-                      "Principles of user interface design, user experience research, and creating accessible digital products.",
+                      "Demonstrated proficiency in English communication for workplace and everyday situations, with a focus on listening and reading comprehension skills..",
                   },
-                  {
-                    title: "AWS Certified Developer",
-                    issuer: "Amazon Web Services",
-                    year: "2019",
-                    description:
-                      "Cloud infrastructure, serverless architecture, and deploying applications on AWS.",
-                  },
+                  // {
+                  //   title: "AWS Certified Developer",
+                  //   issuer: "Amazon Web Services",
+                  //   year: "2019",
+                  //   description:
+                  //     "Cloud infrastructure, serverless architecture, and deploying applications on AWS.",
+                  // },
                 ].map((cert, index) => (
                   <Box
                     key={index}

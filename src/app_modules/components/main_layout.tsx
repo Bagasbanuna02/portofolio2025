@@ -2,7 +2,9 @@
 
 import type React from "react";
 
-import { assetsPath } from "@/lib/assets_path";
+import { useLanguage } from "@/app/context/language-context";
+import { imageAssetPath } from "@/lib/assets_path";
+import { pagePath } from "@/lib/page_path";
 import {
   Anchor,
   AppShell,
@@ -13,24 +15,21 @@ import {
   Group,
   Stack,
   Text,
-  ThemeIcon,
   useMantineTheme
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
-  IconBrandGithub,
-  IconBrandLinkedin,
   IconBriefcase,
   IconCoin,
   IconHome,
-  IconMail,
   IconMessage,
-  IconUser,
+  IconUser
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { CompButtonMediaSocial } from "./comp_button_mediaSocial";
 
-export default function ComponentLayout({
+export default function ComponentMainLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -38,13 +37,18 @@ export default function ComponentLayout({
   const [opened, { toggle, close }] = useDisclosure(false);
   const theme = useMantineTheme();
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   const navLinks = [
-    { icon: IconHome, label: "Home", path: "/" },
-    { icon: IconBriefcase, label: "Portfolio", path: "/portofolio" },
-    { icon: IconUser, label: "About Me", path: "/about" },
-    { icon: IconCoin, label: "Price List", path: "/pricing" },
-    { icon: IconMessage, label: "Contact", path: "/contact" },
+    { icon: IconHome, label: t("nav.home"), path: pagePath.home },
+    {
+      icon: IconBriefcase,
+      label: t("nav.portfolio"),
+      path: pagePath.portofolio,
+    },
+    { icon: IconUser, label: t("nav.about"), path: pagePath.about },
+    { icon: IconCoin, label: t("nav.pricing"), path: pagePath.pricing },
+    { icon: IconMessage, label: t("nav.contact"), path: pagePath.contact },
   ];
 
   const isActive = (path: string) => {
@@ -71,7 +75,12 @@ export default function ComponentLayout({
             <Text size="lg" fw={700}>
               Banuna Studio
             </Text>
-            <Avatar src={opened ? assetsPath.avatar : assetsPath.logo} size="md" radius="xl" style={{transition: "all 2s"}}/>
+            <Avatar
+              src={opened ? imageAssetPath.avatar : imageAssetPath.logo}
+              size="md"
+              radius="xl"
+              style={{ transition: "all 2s" }}
+            />
           </Group>
         </Group>
       </AppShell.Header>
@@ -81,7 +90,7 @@ export default function ComponentLayout({
         <Box>
           <Box ta="center" mb={20}>
             <Avatar
-              src={assetsPath.logo}
+              src={imageAssetPath.logo}
               size={150}
               radius={120}
               mx="auto"
@@ -133,16 +142,13 @@ export default function ComponentLayout({
         <Box mt="auto">
           <Divider my="sm" />
           <Group justify="center" mt="md">
-            <ThemeIcon size={36} radius="xl" color="blue">
-              <IconBrandGithub size={18} />
-            </ThemeIcon>
-            <ThemeIcon size={36} radius="xl" color="blue">
-              <IconBrandLinkedin size={18} />
-            </ThemeIcon>
-            <ThemeIcon size={36} radius="xl" color="blue">
-              <IconMail size={18} />
-            </ThemeIcon>
+            <CompButtonMediaSocial themeSize={36} iconSize={18} />
           </Group>
+
+          {/* Language Switcher */}
+          {/* <Box mt="xl" px="xs">
+            <LanguageSwitcher />
+          </Box> */}
         </Box>
       </AppShell.Navbar>
 
