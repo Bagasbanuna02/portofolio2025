@@ -14,14 +14,9 @@ import {
   Title,
   useMantineTheme,
 } from "@mantine/core";
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconMail,
-  IconMapPin,
-  IconPhone,
-} from "@tabler/icons-react";
+import { IconMail, IconMapPin } from "@tabler/icons-react";
 import Link from "next/link";
+import { CompButtonMediaSocial } from "../components/comp_button_mediaSocial";
 
 export default function ContactPage() {
   const theme = useMantineTheme();
@@ -77,11 +72,11 @@ export default function ContactPage() {
                     <Text fw={600} size="lg" c="white">
                       Email
                     </Text>
-                    <Text c="dimmed">hello@example.com</Text>
+                    <Text c="dimmed">bagasbanuna12@gmail.com</Text>
                   </Box>
                 </Group>
 
-                <Group>
+                {/* <Group>
                   <ThemeIcon size={50} radius="md" color="blue.8" c="blue.4">
                     <IconPhone size={24} />
                   </ThemeIcon>
@@ -91,7 +86,7 @@ export default function ContactPage() {
                     </Text>
                     <Text c="dimmed">+1 (555) 123-4567</Text>
                   </Box>
-                </Group>
+                </Group> */}
 
                 <Group>
                   <ThemeIcon size={50} radius="md" color="blue.8" c="blue.4">
@@ -101,7 +96,7 @@ export default function ContactPage() {
                     <Text fw={600} size="lg" c="white">
                       Location
                     </Text>
-                    <Text c="dimmed">San Francisco, CA</Text>
+                    <Text c="dimmed">Bali, Indonesia</Text>
                   </Box>
                 </Group>
               </SimpleGrid>
@@ -111,29 +106,12 @@ export default function ContactPage() {
               </Title>
 
               <Group>
-                <Link href="https://github.com/Bagasbanuna02" passHref>
-                  <ThemeIcon size={50} radius="xl" color="blue">
-                    <IconBrandGithub size={24} />
-                  </ThemeIcon>
-                </Link>
-                <Link
-                  href="https://www.linkedin.com/in/bagas-nusantara-nabillah-45035a224/"
-                  passHref
-                >
-                  <ThemeIcon size={50} radius="xl" color="blue">
-                    <IconBrandLinkedin size={24} />
-                  </ThemeIcon>
-                </Link>
-                <Link href="mailto:bagasbanuna12@gmail.com" passHref>
-                  <ThemeIcon size={50} radius="xl" color="blue">
-                    <IconMail size={24} />
-                  </ThemeIcon>
-                </Link>
+                <CompButtonMediaSocial />
               </Group>
 
               <Box mt={50}>
                 <Text size="lg" c="gray.3">
-                  {`  I'm available for freelance projects, full-time positions, and
+                  {`  I'm available for freelance projects and
                   consulting opportunities. Let's create something amazing
                   together!`}
                 </Text>
@@ -302,7 +280,7 @@ export default function ContactPage() {
             </Button>
             <Button
               component={Link}
-              href="/portfolio"
+              href="/portofolio"
               size="lg"
               variant="outline"
             >
