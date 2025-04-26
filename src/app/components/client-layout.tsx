@@ -5,6 +5,8 @@ import { MantineProvider } from "@mantine/core";
 import type React from "react";
 import { LanguageProvider } from "../context/language-context";
 import { theme } from "../theme";
+import { Notifications } from "@mantine/notifications";
+
 
 export default function ClientLayout({
   children,
@@ -13,6 +15,7 @@ export default function ClientLayout({
 }) {
   return (
     <MantineProvider theme={theme} defaultColorScheme="dark">
+      <Notifications />
       <LanguageProvider>
         <ComponentMainLayout>{children}</ComponentMainLayout>
       </LanguageProvider>

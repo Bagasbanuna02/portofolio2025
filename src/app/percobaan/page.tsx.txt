@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import {
   Box,
@@ -9,90 +10,74 @@ import {
   SimpleGrid,
   Stack,
   Text,
-  Textarea,
+  TextInput,
 } from "@mantine/core";
 import { useState } from "react";
 
 const listStiker = [
   {
     id: 1,
+    name: "stiker1",
+    url: "https://i.pinimg.com/originals/0a/2e/54/0a2e544c9a908beed6b544d031a444ca.jpg",
+  },
+  {
+    id: 2,
     name: "stiker2",
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN9AKmsBY4yqdn3GueJJEVPJbfmf853gDL4cN8uc9eqsCTiJ1fzhcpywzVP68NCJEA5NQ&usqp=CAU",
   },
   {
-    id: 2,
+    id: 3,
     name: "stiker3",
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lkV3ZiQ8m-OELSui2JGVy80vnh1cyRUV7NrgFNluPVVs2HUAyCHwCMAKGe2s5jk2sn8&usqp=CAU",
   },
   {
-    id: 3,
+    id: 4,
     name: "stiker4",
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHy9ZdsPc6dHgVTl5yIGpRJ-KtpTIsXA2_kbfO1Oc-pv_f7CNKGxhO56RjKujE3xCyb9k&usqp=CAU",
   },
 ];
 
-type ChatItem = {
-  type: "text" | "sticker";
-  content: string;
-};
-
 export default function Page() {
   const [data, setData] = useState("");
-  const [chat, setChat] = useState<ChatItem[]>([]);
-
+  const [chat, setChat] = useState<any[]>([]);
   return (
     <Stack p={"md"}>
       <SimpleGrid cols={2}>
-        <Stack bg={"gray.1"} h={560} component={ScrollArea} p="md">
+        <Stack bg={"gray"} h={560} component={ScrollArea}>
           {chat.map((item, index) =>
-            item.type === "sticker" ? (
+            item.includes("https") || item.includes("http") ? (
               <Box mb={"lg"} key={index}>
-                <Image w={50} h={50} src={item.content} alt="sticker" />
+                <Image w={100} h={100} src={item} alt={item} />
               </Box>
             ) : (
-              <Text key={index}>{item.content}</Text>
+              <Text key={index}>{item}</Text>
             )
           )}
         </Stack>
-        <Paper withBorder p="md">
-          {JSON.stringify(chat, null, 2)}
-        </Paper>
+        <Paper>{JSON.stringify(chat, null, 2)}</Paper>
       </SimpleGrid>
-
       <Stack w={300}>
-        <Textarea
+        <TextInput
           placeholder="Masukan chat"
-          value={data}
-          autosize
-          onChange={(e) => setData(e.target.value)}
+          onChange={(val) => {
+            setData(val.target.value);
+          }}
         />
         <Button
           onClick={() => {
-            if (data.trim() !== "") {
-              setChat((prev) => [...prev, { type: "text", content: data }]);
-              setData(""); // clear after sending
-            }
+            setChat((prev) => [...prev, data]);
           }}
         >
-          Kirim
+          Simpan
         </Button>
       </Stack>
-
       <Group>
         {listStiker.map((item) => (
           <Box
             key={item.id}
-            component="button"
-            style={{
-              border: "none",
-              background: "transparent",
-              cursor: "pointer",
-            }}
+            component={"a"}
             onClick={() => {
-              setChat((prev) => [
-                ...prev,
-                { type: "sticker", content: item.url },
-              ]);
+              setChat((prev) => [...prev, item.url]);
             }}
           >
             <Image w={100} h={100} src={item.url} alt={item.name} />

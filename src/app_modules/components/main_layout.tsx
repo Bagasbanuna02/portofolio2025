@@ -15,19 +15,20 @@ import {
   Group,
   Stack,
   Text,
-  useMantineTheme
+  useMantineTheme,
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useShallowEffect } from "@mantine/hooks";
 import {
   IconBriefcase,
   IconCoin,
   IconHome,
   IconMessage,
-  IconUser
+  IconUser,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CompButtonMediaSocial } from "./comp_button_mediaSocial";
+import { useState } from "react";
 
 export default function ComponentMainLayout({
   children,
@@ -38,6 +39,7 @@ export default function ComponentMainLayout({
   const theme = useMantineTheme();
   const pathname = usePathname();
   const { t } = useLanguage();
+  const [version, setVersion] = useState("");
 
   const navLinks = [
     { icon: IconHome, label: t("nav.home"), path: pagePath.home },
@@ -56,6 +58,16 @@ export default function ComponentMainLayout({
     if (path !== "/" && pathname.startsWith(path)) return true;
     return false;
   };
+
+  useShallowEffect(() => {
+    handleVersion();
+  }, []);
+
+  async function handleVersion() {
+    const response = await fetch("/api/version");
+    const data = await response.json();
+    setVersion(data.newVersion);
+  }
 
   return (
     <AppShell
@@ -91,7 +103,7 @@ export default function ComponentMainLayout({
           <Box ta="center" mb={20}>
             <Avatar
               src={imageAssetPath.logo}
-              size={150}
+              size={140}
               radius={120}
               mx="auto"
               mb={10}
@@ -103,6 +115,7 @@ export default function ComponentMainLayout({
               Web Developer & UI / UX Design
             </Text>
           </Box>
+
           <Divider my="sm" />
         </Box>
 
@@ -149,6 +162,11 @@ export default function ComponentMainLayout({
           {/* <Box mt="xl" px="xs">
             <LanguageSwitcher />
           </Box> */}
+        </Box>
+        <Box ta={"center"} mt={"xs"}>
+          <Text fz={"sm"} c="dimmed">
+            v.{version}
+          </Text>
         </Box>
       </AppShell.Navbar>
 
