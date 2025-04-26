@@ -1,6 +1,6 @@
 {
   "name": "portofolio2025",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack --experimental-https",
@@ -14,11 +14,15 @@
     "@mantine/core": "^7.17.3",
     "@mantine/hooks": "^7.17.3",
     "@mantine/modals": "^7.17.3",
+    "@mantine/notifications": "^7.17.5",
     "@tabler/icons-react": "^3.31.0",
+    "@types/nodemailer": "^6.4.17",
     "embla-carousel-react": "^7.1.0",
     "next": "15.2.4",
+    "nodemailer": "^6.10.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "resend": "^4.4.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
