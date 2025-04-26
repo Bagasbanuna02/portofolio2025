@@ -8,15 +8,14 @@ import {
   Group,
   SimpleGrid,
   Text,
-  TextInput,
-  Textarea,
   ThemeIcon,
   Title,
-  useMantineTheme,
+  useMantineTheme
 } from "@mantine/core";
 import { IconMail, IconMapPin } from "@tabler/icons-react";
 import Link from "next/link";
 import { CompButtonMediaSocial } from "../components/comp_button_mediaSocial";
+import { FormContact } from "../components/contact/form_contact";
 
 export default function ContactPage() {
   const theme = useMantineTheme();
@@ -119,86 +118,7 @@ export default function ContactPage() {
             </Grid.Col>
 
             <Grid.Col span={{ base: 12, md: 7 }}>
-              <Box
-                p="xl"
-                bg={theme.colors.dark[7]}
-                style={{
-                  borderRadius: theme.radius.md,
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-                }}
-              >
-                <Title order={2} size="h3" fw={700} c="white" mb={30}>
-                  Send Me a Message
-                </Title>
-
-                <form>
-                  <Grid gutter="md">
-                    <Grid.Col span={{ base: 12, sm: 6 }}>
-                      <TextInput
-                        label="Name"
-                        placeholder="Your name"
-                        required
-                        styles={{
-                          label: {
-                            color: theme.colors.gray[3],
-                            marginBottom: 5,
-                          },
-                        }}
-                      />
-                    </Grid.Col>
-
-                    <Grid.Col span={{ base: 12, sm: 6 }}>
-                      <TextInput
-                        label="Email"
-                        placeholder="Your email"
-                        required
-                        type="email"
-                        styles={{
-                          label: {
-                            color: theme.colors.gray[3],
-                            marginBottom: 5,
-                          },
-                        }}
-                      />
-                    </Grid.Col>
-                  </Grid>
-
-                  <TextInput
-                    label="Subject"
-                    placeholder="Subject"
-                    mt="md"
-                    styles={{
-                      label: { color: theme.colors.gray[3], marginBottom: 5 },
-                    }}
-                  />
-
-                  <TextInput
-                    label="Phone"
-                    placeholder="Your phone number (optional)"
-                    mt="md"
-                    styles={{
-                      label: { color: theme.colors.gray[3], marginBottom: 5 },
-                    }}
-                  />
-
-                  <Textarea
-                    label="Message"
-                    placeholder="Your message"
-                    minRows={5}
-                    mt="md"
-                    required
-                    styles={{
-                      label: { color: theme.colors.gray[3], marginBottom: 5 },
-                    }}
-                  />
-
-                  <Group mt="xl">
-                    <Button type="submit" size="lg" color="blue">
-                      Send Message
-                    </Button>
-                  </Group>
-                </form>
-              </Box>
+              <FormContact />
             </Grid.Col>
           </Grid>
         </Container>

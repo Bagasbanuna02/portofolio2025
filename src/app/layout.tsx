@@ -2,6 +2,7 @@ import type React from "react";
 import "@mantine/core/styles.css";
 import "./styles/global-styles.css"; // Import the custom styles
 import ClientWrapper from "./components/client-wrapper";
+import "@mantine/notifications/styles.css";
 
 export const metadata = {
   title: "Banuna Studio",
@@ -16,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ scrollBehavior: "smooth" }}>
       <head>{/* Remove ColorSchemeScript completely */}</head>
-      <body>
+      <body cz-shortcut-listen="true">
         <ClientWrapper>{children}</ClientWrapper>
       </body>
     </html>
