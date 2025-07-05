@@ -54,7 +54,7 @@ export default function PortfolioPage() {
             <Tabs.List grow justify="center" mb={40}>
               <Tabs.Tab value="all">All Projects</Tabs.Tab>
               <Tabs.Tab value="web">Web Development</Tabs.Tab>
-              <Tabs.Tab value="mobile">Mobile Apps</Tabs.Tab>
+              <Tabs.Tab value="mobile">Web Apps</Tabs.Tab>
               <Tabs.Tab value="design">UI/UX Design</Tabs.Tab>
             </Tabs.List>
 
@@ -257,11 +257,12 @@ function ProjectCard({ project }: { project: any }) {
           {project.description}
         </Text>
         <Button
-          component={Link}
-          href={`/portfolio/project-${project.id}`}
+          // component={Link}
+          // href={`/portfolio/project-${project.id}`}
           variant="light"
           color="blue"
           rightSection={<IconExternalLink size={16} />}
+          onClick={() => window.open(project.link, "_blank")}
         >
           View Project
         </Button>

@@ -69,6 +69,16 @@ export default function HomePage() {
       image: imageAssetPath.project_image1,
       link: "https://daribalimice.vercel.app/home",
     },
+    {
+      title: "Rajutmomen",
+      image: imageAssetPath.project_image3,
+      link: "https://invitation-wheat-ten.vercel.app/",
+    },
+    {
+      title: "Pinjam Barang Logistik",
+      image: imageAssetPath.project_image2,
+      link: "https://pilog.vercel.app/",
+    },
   ];
 
   const testimonials = [
@@ -231,7 +241,7 @@ export default function HomePage() {
                 }}
               >
                 <Image
-                  src={imageAssetPath.project_image1}
+                  src={item.image}
                   alt={`Project ${item}`}
                   height={320}
                   style={{ objectFit: "cover" }}

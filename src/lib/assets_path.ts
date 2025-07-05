@@ -6,4 +6,6 @@ export const imageAssetPath = {
   logo: "/assets/logo.png",
 
   project_image1: "/assets/project-images/project-image1.png",
+  project_image2: "/assets/project-images/project-image2.png",
+  project_image3: "/assets/project-images/project-image3.png",
 };
